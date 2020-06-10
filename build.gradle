@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'javax.inject:javax.inject:1'
+    api 'commons-io:commons-io:2.5' //java-library required
+    compile 'org.assertj:assertj-core:3.14.0'
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0' //war plugin required
+    providedRuntime 'javax.ws.rs:javax.ws.rs-api:2.1' //war plugin required
+
+    compileOnly 'org.liquibase:liquibase-core:3.4.1'
+    runtimeOnly 'com.google.guava:guava:26.0-jre'
+
+    testCompileOnly 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testCompile 'org.json:json:20160810'
+    testRuntimeOnly 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'org.hamcrest:hamcrest-core:2.2'
+}
