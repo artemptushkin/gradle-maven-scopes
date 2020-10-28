@@ -1,4 +1,5 @@
 plugins {
+
     id 'java'
     id 'java-library'
     id 'maven'
@@ -24,7 +25,13 @@ dependencies {
     runtimeOnly 'com.google.guava:guava:26.0-jre'
 
     testCompileOnly 'org.hamcrest:java-hamcrest:2.0.0.0'
+    /* json - добавлена с целью использования в классе CardService для особого случая сериализации */
     testCompile 'org.json:json:20160810'
-    testRuntimeOnly 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'org.hamcrest:hamcrest-core:2.2'
+
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testRuntime 'org.hamcrest:hamcrest-core:2.2'
+}
+
+task printMavenCoordinate() {
+    println "$project.group:$project.name:$project.version"
 }
